@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Surprise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  margin:0; padding:0; height:100%; overflow:hidden;
+  font-family:"Montserrat", sans-serif;
+  background: linear-gradient(180deg,#ffd6e5,#ffeaf2);
+  text-align:center;
+}
+
+/* Smooth transitions */
+.screen {
+  display: none;
+  height:100%; width:100%;
+  animation: fadeIn 0.6s ease forwards;
+}
+.screen.active {display:flex; flex-direction:column; align-items:center; justify-content:center;}
+@keyframes fadeIn {from{opacity:0; transform:scale(0.98);} to{opacity:1; transform:scale(1);}}
+
+/* PASSWORD SCREEN */
+#passwordScreen input {
+  width: 60vw;
+  max-width: 300px;
+  padding: 16px 14px;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  border: 2px solid #ff4d6d;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#passwordScreen button {
+  padding: 16px 40px;
+  font-size: 1.5rem;
+  background: #ff4d6d;
+  color: white;
+  border:none;
+  border-radius: 12px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,77,109,0.4);
+}
+#passwordScreen button:hover { transform: scale(1.05); }
+
+/* PAGE 1 */
+#startBtn {
+  font-size:2.5rem; padding:30px 70px; background:#000; color:#fff;
+  font-family:"Montserrat", sans-serif; box-shadow:0 18px 40px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+#startBtn:hover {transform: scale(1.05);}
+
+/* PAGE 2 */
+h1 { font-family:"Montserrat", sans-serif; font-size:clamp(2rem,5vw,3rem); color:#7a003c; margin:0; }
+.hint { font-style:italic; opacity:0.6; font-size:1rem; margin:10px 0 20px 0; }
+#slideshow { width:min(280px,70vw); border-radius:20px; box-shadow:0 12px 30px rgba(0,0,0,0.2); margin:15px 0; }
+.buttons { position:relative; width:100%; height:220px; margin-top:20px; }
+#yes { background:#ff4d6d; color:white; font-size:1.5rem; padding:16px 40px; animation: heartbeat 1s infinite; box-shadow:0 8px 20px rgba(255,77,109,0.5);}
+#no { background:#e0e0e0; position:absolute; font-size:1.4rem; padding:14px 32px; left:55%; top:20px; cursor:pointer;}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.15); }
+}
+
+/* PAGE 3 */
+#screen3 h1 { font-size:clamp(2.5rem,6vw,3rem); color:#ff2e63; }
+#screen3 p { font-size:1.5rem; margin:10px 0; }
+#nextBtn { font-size:1.6rem; padding:18px 46px; background:#ff4d6d; color:white; border-radius:999px; cursor:pointer; }
+
+/* PAGE 4 */
+#screen4 { position:relative; padding:40px 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+#bgSlide { position:fixed; inset:0; z-index:-1; opacity:0.22; filter:blur(2px); width:100%; height:100%; object-fit:cover; transition:opacity 1s ease; }
+#letter {
+  max-width:720px; margin:auto;
+  background:rgba(255,255,255,0.9); padding:36px; border-radius:24px;
+  font-family:"Playfair Display", serif; font-size:1.3rem; line-height:1.8; box-shadow:0 25px 60px rgba(0,0,0,0.2);
+  text-align:left; /* LEFT align text inside the box */
+}
+
+/* Confetti */
+.confetti {
+  position:fixed; width:8px; height:8px; border-radius:50%; top:-10px; z-index:9999;
+  background: linear-gradient(45deg, #ff77a9, #ffccff);
+  filter: drop-shadow(0 0 4px white);
+  transform: rotate(45deg);
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="passwordScreen" class="screen active">
+  <div>
+    <h1>What day did we text for the first time?</h1>
+    <input type="password" id="passwordInput" placeholder="MMDDYY">
+    <br>
+    <button id="passwordBtn">Submit</button>
+  </div>
+</div>
+
+<!-- PAGE 1 -->
+<div id="screen1" class="screen">
+  <button id="startBtn">Click Here</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="screen2" class="screen">
+  <h1>Vanshika, will you be my Valentine? 💖</h1>
+  <p class="hint">hint: try clicking no…</p>
+  <img id="slideshow" src="pic1.jpeg">
+  <div class="buttons">
+    <button id="yes">YES 💘</button>
+    <button id="no">NO 🙃</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="screen3" class="screen">
+  <h1>You just made me the happiest guy alive 💕</h1>
+  <p>I love you so much 🥰</p>
+  <button id="nextBtn">CLICK HERE!!</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="screen4" class="screen">
+  <img id="bgSlide" src="pic1.jpeg">
+  <div id="letter">
+    <p><strong>Dear Vanshika,</strong></p>
+    <p>Even though we can't spend Valentine's Day together right now, every moment we share makes me realize just how incredible you are. Whether it's our long chats about everything and anything or those fun moments playing games like Roblox, every second with you means the world to me. Our nighttime calls are the highlights of my day.</p>
+    <p>I feel so lucky that fate brought us together. I love you so much. Happy Valentine’s Day!</p>
+    <p><strong>From,<br>Nilesh</strong></p>
+  </div>
+</div>
+
+<audio id="music" loop>
+  <source src="ishq wala love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const screens=["passwordScreen","screen1","screen2","screen3","screen4"];
+const show=id=>screens.forEach(s=>document.getElementById(s).classList.toggle("active", s===id));
+
+const slideshow=document.getElementById("slideshow");
+const bgSlide=document.getElementById("bgSlide");
+const photos=["pic1.jpeg","pic 2.jpeg","pic 3.jpeg","pic 4.jpeg","pic 5.jpeg","pic 6.jpeg"];
+let i=0;
+setInterval(()=>{i=(i+1)%photos.length; slideshow.src=photos[i]; bgSlide.src=photos[i];},2200);
+
+// PASSWORD CHECK
+document.getElementById("passwordBtn").onclick=()=>{
+  const val=document.getElementById("passwordInput").value.trim();
+  if(val==="111622"){
+    show("screen1");
+  } else {
+    alert("Incorrect! Try again.");
+  }
+};
+
+// START BUTTON
+document.getElementById("startBtn").onclick=()=>{ show("screen2"); document.getElementById("music").play().catch(()=>{}); };
+
+/* Sensitive NO button */
+const noBtn=document.getElementById("no");
+document.addEventListener("mousemove",e=>{
+  const r=noBtn.getBoundingClientRect();
+  const dx=e.clientX-(r.left+r.width/2);
+  const dy=e.clientY-(r.top+r.height/2);
+  if(Math.hypot(dx,dy)<130){ 
+    noBtn.style.left=Math.random()*(window.innerWidth-120)+"px"; 
+    noBtn.style.top=Math.random()*(window.innerHeight-120)+"px"; 
+  }
+});
+
+document.getElementById("yes").onclick=()=>{ show("screen3"); sparklyConfetti(); };
+document.getElementById("nextBtn").onclick=()=>show("screen4");
+
+/* Sparkly confetti function */
+function sparklyConfetti(){
+  setInterval(()=>{
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*innerWidth+"px";
+    c.style.width=c.style.height=8+Math.random()*8+"px";
+    c.style.background=`linear-gradient(${Math.random()*360}deg,#ff77a9,#ffccff)`;
+    c.style.transform=`rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(c);
+    let y=-10;
+    const fall=setInterval(()=>{
+      y+=6; c.style.top=y+"px";
+      if(y>innerHeight){c.remove(); clearInterval(fall);}
+    },20);
+  },120);
+}
+</script>
+
+</body>
+</html>
