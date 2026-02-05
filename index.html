@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>redredred</title>
+<title>Valentine Surprise</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -19,30 +19,30 @@ html, body {
 .screen {
   display: none;
   height:100%; width:100%;
-  animation: fadeIn 0.6s ease forwards;
+  animation: fadeIn 1.2s ease forwards; /* slower fade */
 }
 .screen.active {display:flex; flex-direction:column; align-items:center; justify-content:center;}
 @keyframes fadeIn {from{opacity:0; transform:scale(0.98);} to{opacity:1; transform:scale(1);}}
 
 /* PASSWORD SCREEN */
-#passwordInput {font-size:1.6rem; padding:12px 20px; border-radius:12px; border:2px solid #7a003c; margin-bottom:20px; width:60%; max-width:300px;}
-#passwordBtn {font-size:1.4rem; padding:12px 28px; background:#000; color:#fff; border:none; border-radius:12px; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+#passwordInput {font-size:1.2rem; padding:8px 16px; border-radius:10px; border:2px solid #7a003c; margin-bottom:15px; width:70%; max-width:250px;}
+#passwordBtn {font-size:1.1rem; padding:8px 16px; background:#000; color:#fff; border:none; border-radius:10px; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.3);}
 
 /* START BUTTON */
 #startBtn {
-  font-size:2rem; padding:24px 50px; background:#000; color:#fff;
-  font-family:"Montserrat", sans-serif; box-shadow:0 12px 30px rgba(0,0,0,0.4);
+  font-size:1.6rem; padding:16px 40px; background:#000; color:#fff;
+  font-family:"Montserrat", sans-serif; box-shadow:0 10px 25px rgba(0,0,0,0.4);
   transition: transform 0.3s ease;
 }
 #startBtn:hover {transform: scale(1.05);}
 
 /* PAGE 2 */
-h1 { font-family:"Montserrat", sans-serif; font-size:clamp(1.8rem,5vw,2.5rem); color:#7a003c; margin:0; }
-.hint { font-style:italic; opacity:0.6; font-size:0.9rem; margin:10px 0 15px 0; }
-#slideshow { width:min(250px,70vw); border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.2); margin:10px 0; }
-.buttons { position:relative; width:100%; height:160px; margin-top:15px; }
-#yes { background:#ff4d6d; color:white; font-size:1.3rem; padding:12px 32px; animation: heartbeat 1s infinite; box-shadow:0 6px 15px rgba(255,77,109,0.5);}
-#no { background:#e0e0e0; position:absolute; font-size:1.2rem; padding:10px 26px; left:55%; top:20px; cursor:pointer; border-radius:20px;}
+h1 { font-family:"Montserrat", sans-serif; font-size:clamp(1.5rem,4vw,2rem); color:#7a003c; margin:0; }
+.hint { font-style:italic; opacity:0.6; font-size:0.8rem; margin:8px 0 12px 0; }
+#slideshow { width:min(200px,65vw); height:auto; border-radius:16px; box-shadow:0 6px 15px rgba(0,0,0,0.2); margin:8px 0; object-fit:contain; }
+.buttons { position:relative; width:100%; height:120px; margin-top:10px; }
+#yes { background:#ff4d6d; color:white; font-size:1.1rem; padding:8px 24px; animation: heartbeat 1s infinite; box-shadow:0 4px 12px rgba(255,77,109,0.5);}
+#no { background:#e0e0e0; position:absolute; font-size:1rem; padding:6px 18px; left:55%; top:15px; cursor:pointer; border-radius:16px;}
 
 /* Heartbeat animation */
 @keyframes heartbeat {
@@ -53,38 +53,38 @@ h1 { font-family:"Montserrat", sans-serif; font-size:clamp(1.8rem,5vw,2.5rem); c
 }
 
 /* PAGE 3 */
-#screen3 h1 { font-size:clamp(2rem,5vw,2.5rem); color:#ff2e63; margin-bottom:8px; }
-#screen3 p { font-size:1.2rem; margin:5px 0; }
-#nextBtn { font-size:1.3rem; padding:14px 36px; background:#ff4d6d; color:white; border-radius:999px; cursor:pointer; }
+#screen3 h1 { font-size:clamp(1.8rem,4vw,2rem); color:#ff2e63; margin-bottom:6px; }
+#screen3 p { font-size:1rem; margin:4px 0; }
+#nextBtn { font-size:1.1rem; padding:10px 28px; background:#ff4d6d; color:white; border-radius:999px; cursor:pointer; }
 
 /* PAGE 4 */
-#screen4 { position:relative; padding:20px 15px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-#bgSlide { position:fixed; inset:0; z-index:-1; opacity:0.22; filter:blur(2px); width:100%; height:100%; object-fit:cover; transition:opacity 1s ease; }
+#screen4 { position:relative; padding:10px 10px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+#bgSlide { position:fixed; inset:0; z-index:-1; opacity:0.22; filter:blur(2px); width:100%; height:100%; object-fit:cover; transition:opacity 1.5s ease; } /* longer transition */
 #letter {
-  max-width:90%; margin:auto;
-  background:rgba(255,255,255,0.9); padding:25px; border-radius:20px;
-  font-family:"Playfair Display", serif; font-size:1rem; line-height:1.6; box-shadow:0 15px 40px rgba(0,0,0,0.2);
-  text-align:left; /* text left inside box */
+  max-width:80%; margin:auto;
+  background:rgba(255,255,255,0.85); padding:12px; border-radius:16px;
+  font-family:"Playfair Display", serif; font-size:0.75rem; line-height:1.35; box-shadow:0 12px 30px rgba(0,0,0,0.2);
+  text-align:left;
 }
 
 /* Confetti */
 .confetti {
-  position:fixed; width:6px; height:6px; border-radius:50%; top:-10px; z-index:9999;
+  position:fixed; width:4px; height:4px; border-radius:50%; top:-10px; z-index:9999;
   background: linear-gradient(45deg, #ff77a9, #ffccff);
-  filter: drop-shadow(0 0 3px white);
+  filter: drop-shadow(0 0 2px white);
   transform: rotate(45deg);
 }
 
 /* Mobile optimizations */
 @media (max-width:600px){
-  #passwordInput {font-size:1.2rem; padding:8px 16px; width:70%;}
-  #passwordBtn {font-size:1.1rem; padding:8px 16px;}
-  #startBtn {font-size:1.6rem; padding:16px 36px;}
-  #slideshow {width:180px; height:180px;}
-  #yes {font-size:1.1rem; padding:10px 28px;}
-  #no {font-size:1rem; padding:8px 20px;}
-  #nextBtn {font-size:1rem; padding:10px 28px;}
-  #letter {font-size:0.9rem; padding:16px;}
+  #passwordInput {font-size:1rem; padding:6px 12px; width:75%;}
+  #passwordBtn {font-size:1rem; padding:6px 12px;}
+  #startBtn {font-size:1.4rem; padding:12px 32px;}
+  #slideshow {width:140px; height:auto;}
+  #yes {font-size:0.95rem; padding:5px 18px;}
+  #no {font-size:0.85rem; padding:4px 12px;}
+  #nextBtn {font-size:0.95rem; padding:6px 16px;}
+  #letter {font-size:0.7rem; padding:10px;}
 }
 </style>
 </head>
@@ -163,12 +163,12 @@ document.getElementById("startBtn").onclick=()=>{ show("screen2"); document.getE
 // NO BUTTON bouncing inside screen
 const noBtn = document.getElementById("no");
 let x = noBtn.offsetLeft, y = noBtn.offsetTop;
-let vx = 4, vy = 4;
+let vx = 3, vy = 3;
 document.addEventListener("mousemove", e => {
   const r = noBtn.getBoundingClientRect();
   const dx = e.clientX - (r.left + r.width/2);
   const dy = e.clientY - (r.top + r.height/2);
-  if(Math.hypot(dx,dy) < 120){
+  if(Math.hypot(dx,dy) < 100){
     x += vx; y += vy;
     if(x < 0 || x > window.innerWidth - r.width) vx*=-1;
     if(y < 0 || y > window.innerHeight - r.height) vy*=-1;
@@ -187,13 +187,13 @@ function sparklyConfetti(){
     const c=document.createElement("div");
     c.className="confetti";
     c.style.left=Math.random()*innerWidth+"px";
-    c.style.width=c.style.height=6+Math.random()*6+"px";
+    c.style.width=c.style.height=4+Math.random()*4+"px";
     c.style.background=`linear-gradient(${Math.random()*360}deg,#ff77a9,#ffccff)`;
     c.style.transform=`rotate(${Math.random()*360}deg)`;
     document.body.appendChild(c);
     let y=-10;
     const fall=setInterval(()=>{
-      y+=4; c.style.top=y+"px";
+      y+=3; c.style.top=y+"px";
       if(y>innerHeight){c.remove(); clearInterval(fall);}
     },20);
   },120);
