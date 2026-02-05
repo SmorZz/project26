@@ -5,7 +5,7 @@
 <title>project122915</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 html, body {
@@ -19,7 +19,7 @@ html, body {
 .screen {
   display: none;
   height:100%; width:100%;
-  animation: fadeIn 1.2s ease forwards; /* slower fade */
+  animation: fadeIn 3s ease forwards; /* slower fade */
 }
 .screen.active {display:flex; flex-direction:column; align-items:center; justify-content:center;}
 @keyframes fadeIn {from{opacity:0; transform:scale(0.98);} to{opacity:1; transform:scale(1);}}
@@ -32,7 +32,7 @@ html, body {
 #startBtn {
   font-size:1.6rem; padding:16px 40px; background:#000; color:#fff;
   font-family:"Montserrat", sans-serif; box-shadow:0 10px 25px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease;
+  transition: transform 1s ease;
 }
 #startBtn:hover {transform: scale(1.05);}
 
@@ -63,7 +63,8 @@ h1 { font-family:"Montserrat", sans-serif; font-size:clamp(1.5rem,4vw,2rem); col
 #letter {
   max-width:80%; margin:auto;
   background:rgba(255,255,255,0.85); padding:12px; border-radius:16px;
-  font-family:"Playfair Display", serif; font-size:0.75rem; line-height:1.35; box-shadow:0 12px 30px rgba(0,0,0,0.2);
+  font-family:"Dancing Script", cursive; /* updated font */
+  font-size:0.75rem; line-height:1.35; box-shadow:0 12px 30px rgba(0,0,0,0.2);
   text-align:left;
 }
 
@@ -93,7 +94,7 @@ h1 { font-family:"Montserrat", sans-serif; font-size:clamp(1.5rem,4vw,2rem); col
 
 <!-- PASSWORD SCREEN -->
 <div id="passwordScreen" class="screen active">
-  <h1>Enter the day we texted for the first time</h1>
+  <h1>What was the day when we FaceTimed each other for the first time?</h1>
   <input type="password" id="passwordInput" placeholder="MMDDYY">
   <button id="passwordBtn">Submit</button>
 </div>
@@ -126,7 +127,7 @@ h1 { font-family:"Montserrat", sans-serif; font-size:clamp(1.5rem,4vw,2rem); col
   <img id="bgSlide" src="pic1.jpeg">
   <div id="letter">
     <p><strong>Dear Vanshika,</strong></p>
-    <p>Even though we don't get many chances to hang out in person, every moment we share makes me realize just how incredible you are! Whether it's our 6-hour FaceTimes about everything and anything, or our Indian Truck Driving craze, every second with you means the world to me. Our nighttime calls are the highlights of my day, and I can't wait to make more memories with you. Distance may keep us apart for now, but our journey has only just started! .</p>
+    <p>Even though we don't get many chances to hang out in person, every moment we share makes me realize just how incredible you are! Whether it's our 6-hour FaceTimes about everything and anything, or our Indian Truck Driving craze, every second with you means the world to me. Our nighttime calls are the highlights of my day, and I can't wait to make more memories with you. Distance may keep us apart for now, but our journey has only just started!</p>
     <p>However, despite the things that keep us apart, I'm still so grateful that the world brought us together. You're just so amazing, and I'm so lucky to have you by my side! I love you so much. Happy Valentine’s Day!</p>
     <p><strong>From,<br>Nilesh</strong></p>
   </div>
@@ -143,7 +144,7 @@ const show=id=>screens.forEach(s=>document.getElementById(s).classList.toggle("a
 // PASSWORD CHECK
 document.getElementById("passwordBtn").onclick = () => {
   const pass = document.getElementById("passwordInput").value;
-  if(pass === "111622"){
+  if(pass === "091424"){
     show("screen1");
   } else {
     alert("Incorrect! Try again.");
